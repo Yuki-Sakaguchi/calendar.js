@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>カレンダー</title>
+        <link rel="stylesheet" href="./css/calendar.css">
+        <style>
+            .wrapper {
+                max-width: 500px;
+                width: 100%;
+                margin: auto;
+            }
+            .inner {
+                margin: 30px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>calendar.js</h1>
+        <div class="wrapper">
+            <div class="inner">
+                <h2>デフォルト表示</h2>
+
+                <div class="calendar" id="calendar">
+                    <header class="js-calendar-header">
+                        <span class="js-calendar-year"></span><!-- 年が入る -->
+                        /
+                        <span class="js-calendar-month"></span><!-- 月が入る -->
+                    </header>
+                    <div class="js-calendar-left"></div><!-- 前の月に戻る -->
+                    <div class="js-calendar"></div><!-- カレンダーが入る -->
+                    <div class="js-calendar-right"></div><!-- 次の月に戻る -->
+                </div>
+
+            </div>
+            <div class="inner">
+                <h2>スケジュール追加し、アニメーションの速度を変えた</h2>
+
+                <div class="calendar" id="calendar1">
+                    <header class="js-calendar-header">
+                        <span class="js-calendar-year"></span><!-- 年が入る -->
+                        /
+                        <span class="js-calendar-month"></span><!-- 月が入る -->
+                    </header>
+                    <div class="js-calendar-left"></div><!-- 前の月に戻る -->
+                    <div class="js-calendar"></div><!-- カレンダーが入る -->
+                    <div class="js-calendar-right"></div><!-- 次の月に戻る -->
+                </div>
+
+            </div>
+            <div class="inner">
+                <h2>アニメーションをslideに</h2>
+
+                <div class="calendar" id="calendar2">
+                    <header class="js-calendar-header">
+                        <span class="js-calendar-year"></span><!-- 年が入る -->
+                        /
+                        <span class="js-calendar-month"></span><!-- 月が入る -->
+                    </header>
+                    <div class="js-calendar-left"></div><!-- 前の月に戻る -->
+                    <div class="js-calendar"></div><!-- カレンダーが入る -->
+                    <div class="js-calendar-right"></div><!-- 次の月に戻る -->
+                </div>
+
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="./js/calendar.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+                // スケジュール配列
+                var scheduleList = [
+                    {
+                        year: 2018,
+                        month: 5,
+                        schedule: {
+                            18: '有給',
+                            21: '有給',
+                            22: '有給'
+                        }
+                    },
+                    {
+                        year: 2018,
+                        month: 6,
+                        schedule: {
+                            8: '夏期休暇',
+                            11: '夏期休暇',
+                            12: '夏期休暇',
+                            13: '夏期休暇',
+                            29: 'テスト<br>テスト'
+                        }
+                    },
+                    {
+                        year: 2018,
+                        month: 7,
+                        schedule: {
+                            18: 'お盆休み',
+                            19: 'お盆休み',
+                            20: 'お盆休み'
+                        }
+                    }
+                ];
+
+                // デフォルト
+                var calendar = new Calendar();
+
+                // フェード
+                var calendar1 = new Calendar({
+                    el: '#calendar1',
+                    schedule: scheduleList,
+                    anime: 'fade',
+                    animeSpeed: 150,
+                });
+
+                // スライダー
+                var calendar2 = new Calendar({
+                    el: '#calendar2',
+                    schedule: scheduleList,
+                    date: '2020/1',
+                    anime: 'slide',
+                    animeSpeed: 300,
+                    modal: true,
+                });
+            });
+        </script>
+    </body>
+</html>

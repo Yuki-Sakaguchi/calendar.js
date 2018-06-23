@@ -1,0 +1,152 @@
+/* ========================================
+
+    calendarのスタイル
+
+======================================== */
+* {
+  box-sizing: border-box;
+}
+
+.calendar {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+/* anime: custom;の時用 */
+/* .calendar.animate-before {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.calendar.animate-after {
+  opacity: 0;
+  transform: translateY(-100px);
+} */
+
+.schedule-content {
+  font-size: 12px;
+  text-align: center;
+}
+
+.js-calendar-header {
+  width: 90%;
+  margin: auto;
+}
+
+.js-calendar-year {
+  font-size: 2rem;
+}
+
+.js-calendar-month {
+  font-size: 2rem;
+}
+
+.js-calendar-left {
+  position: absolute;
+  height: 100%;
+  width: 5%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.js-calendar-left::before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent #aaa transparent transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin: auto;
+}
+
+.js-calendar-right {
+  position: absolute;
+  height: 100%;
+  width: 5%;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.js-calendar-right::before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent transparent #aaa;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin: auto;
+}
+
+.js-calendar {
+  width: 90%;
+  margin: auto;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.js-calendar > div {
+  width: 100%;
+  color: #444;
+}
+
+.js-calendar > div::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.js-calendar > div > div {
+  position: relative;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: calc(100% / 7);
+  float: left;
+  transition: 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.js-calendar > div > div:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.js-calendar > div > div.notarget {
+  color: #ccc;
+}
+
+.js-calendar > div > div::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.js-calendar > div > div > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.holiday {
+  background-color: #ffe1e1;
+}
+
+.holiday--blue {
+  background-color: #e0ebf8;
+}
